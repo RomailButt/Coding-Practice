@@ -4,6 +4,15 @@ function reverse(str) {
 }
 // console.log(reverse("romail"));
 
+// reverse a string without buildin methods
+function reverseWithBuildinMethods(str, index = str.length - 1) {
+  if (index < 0) {
+    return "";
+  }
+  return str[index] + reverseWithBuildinMethods(str, index - 1);
+}
+console.log(reverseWithBuildinMethods("romail"));
+
 // Check for Palindrome
 function checkPalindrome(str) {
   const isPalindrome = str.split("").reverse().join("");
@@ -324,12 +333,15 @@ function isStringContainsOnlyDigits(str) {
 
 // Convert a String to Snake Case
 function wordIntoSnakeCase(str) {
-  return str.split(" ").map((ele) => {
-    if (str.indexOf(ele) === 0) {
-      return ele[0].toLowerCase() + ele.slice(1, ele.length);
-    } else {
-      return ele[0].toLowerCase() + ele.slice(1, ele.length);
-    }
-  }).join('_');
+  return str
+    .split(" ")
+    .map((ele) => {
+      if (str.indexOf(ele) === 0) {
+        return ele[0].toLowerCase() + ele.slice(1, ele.length);
+      } else {
+        return ele[0].toLowerCase() + ele.slice(1, ele.length);
+      }
+    })
+    .join("_");
 }
 // console.log(wordIntoSnakeCase("Hello guys I am nasir"));
