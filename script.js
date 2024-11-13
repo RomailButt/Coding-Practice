@@ -322,7 +322,7 @@ function isStringContainsOnlyDigits(str) {
 
 // console.log(isStringContainsOnlyDigits("1234506"));
 
-// Convert a String to Snake Case
+
 function wordIntoSnakeCase(str) {
   return str.split(" ").map((ele) => {
     if (str.indexOf(ele) === 0) {
