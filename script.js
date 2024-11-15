@@ -11,7 +11,7 @@ function reverseWithBuildinMethods(str, index = str.length - 1) {
   }
   return str[index] + reverseWithBuildinMethods(str, index - 1);
 }
-console.log(reverseWithBuildinMethods("romail"));
+// console.log(reverseWithBuildinMethods("romail"));
 
 // Check for Palindrome
 function checkPalindrome(str) {
@@ -27,6 +27,25 @@ function LargestNumber(arr) {
 }
 
 // console.log(LargestNumber([1,2,3,4,5,7,8,12,4,54,23]));
+
+// Find the smallest Number in an Array
+function smallestNumber(arr) {
+  return Math.min(...arr);
+}
+// console.log(smallestNumber([13,2,3,4,5,7,8,12,4,54,23]));
+
+function smallestNumberWithoutBuildin(arr) {
+let smallest = arr[0];
+  for(let i =0 ; i < arr.length ; i++){
+    if(smallest > arr[i]){
+      smallest = arr[i];
+    }
+  }
+  return smallest;
+}
+// console.log(smallestNumberWithoutBuildin([13,22,3,4,5,73,8,12,4,54,23]));
+
+
 
 // FizzBuzz 3 and 5
 
@@ -226,14 +245,13 @@ function secondLargestElementInArray(arr) {
     if (arr[i] > firstLargest) {
       secondLargest = firstLargest;
       firstLargest = arr[i];
-    } else if (arr[i] > secondLargest && arr[i] < firstLargest) {
+    } 
+    else if (arr[i] > secondLargest && arr[i] < firstLargest) {
       secondLargest = arr[i];
     }
   }
-
   return secondLargest;
 }
-
 // console.log(secondLargestElementInArray([1, 5, 88, 7, 9, 5, 4, 30, 2, 1, 3]));
 
 // Count Each Character's Occurrences
@@ -345,3 +363,23 @@ function wordIntoSnakeCase(str) {
     .join("_");
 }
 // console.log(wordIntoSnakeCase("Hello guys I am nasir"));
+
+// Pure function
+function add(a, b) {
+  return a + b;
+}
+
+// console.log(add(2, 3)); // Always returns 5
+// console.log(add(2, 3)); // Always returns 5, no matter how many times it is called
+
+
+// Impure function
+let count = 0;
+
+function increment() {
+  count += 1;
+  return count;
+}
+
+// console.log(increment()); // 1
+// console.log(increment()); // 2, output changes due to external variable
