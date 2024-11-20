@@ -35,17 +35,15 @@ function smallestNumber(arr) {
 // console.log(smallestNumber([13,2,3,4,5,7,8,12,4,54,23]));
 
 function smallestNumberWithoutBuildin(arr) {
-let smallest = arr[0];
-  for(let i =0 ; i < arr.length ; i++){
-    if(smallest > arr[i]){
+  let smallest = arr[0];
+  for (let i = 0; i < arr.length; i++) {
+    if (smallest > arr[i]) {
       smallest = arr[i];
     }
   }
   return smallest;
 }
 // console.log(smallestNumberWithoutBuildin([13,22,3,4,5,73,8,12,4,54,23]));
-
-
 
 // FizzBuzz 3 and 5
 
@@ -63,7 +61,7 @@ function fizzBuzz(n) {
   }
 }
 
-//   fizzBuzz(15);
+  // fizzBuzz(15);
 
 // Find the Factorial of a Number
 function factorial(num) {
@@ -148,7 +146,9 @@ function removeDuplicates(arr) {
 
 let arr = [1, 1, 2, 3, 3, 4];
 let newLength = removeDuplicates(arr);
-//   console.log(arr.slice(0, newLength));
+// console.log(newLength);
+
+  // console.log(arr.slice(0, newLength));
 
 //  Find the Missing Number in an Array
 function findMissingNumber(arr) {
@@ -245,8 +245,7 @@ function secondLargestElementInArray(arr) {
     if (arr[i] > firstLargest) {
       secondLargest = firstLargest;
       firstLargest = arr[i];
-    } 
-    else if (arr[i] > secondLargest && arr[i] < firstLargest) {
+    } else if (arr[i] > secondLargest && arr[i] < firstLargest) {
       secondLargest = arr[i];
     }
   }
@@ -372,7 +371,6 @@ function add(a, b) {
 // console.log(add(2, 3)); // Always returns 5
 // console.log(add(2, 3)); // Always returns 5, no matter how many times it is called
 
-
 // Impure function
 let count = 0;
 
@@ -383,3 +381,61 @@ function increment() {
 
 // console.log(increment()); // 1
 // console.log(increment()); // 2, output changes due to external variable
+
+// promises in javascript
+
+// In JavaScript, Promises are used to handle asynchronous operations, such as fetching
+// data from a server, waiting for a timer, or reading files.
+
+// Key States of a Promise:
+// Pending: The initial state, neither fulfilled nor rejected.
+// Fulfilled: The operation was successful, and the promise is resolved.
+// Rejected: The operation failed, and the promise is rejected.
+function data() {
+  return new Promise((resolved, rejected) => {
+    setTimeout(() => {
+      rejected({
+        isSuccess: false,
+      });
+    }, 1000);
+  });
+}
+
+// using async await
+async function getData1() {
+  try {
+    const result = await data();
+    console.log(result);
+  } catch (error) {
+    console.log("catch", error);
+  } finally {
+    console.log("hello guys");
+  }
+  console.log(1);
+
+  setTimeout(() => {
+    console.log("hello");
+  }, 0);
+  console.log(2);
+}
+// getData1();
+
+// using ,then and .catch
+function getData2() {
+  console.log(1);
+  data()
+    .then((data) => {
+      console.log("then", data);
+    })
+    .catch((err) => {
+      console.log("catch", err);
+    })
+    .finally(() => {
+      console.log("hello guys");
+    });
+  setTimeout(() => {
+    console.log("hello");
+  }, 0);
+  console.log(2);
+}
+// getData2();
